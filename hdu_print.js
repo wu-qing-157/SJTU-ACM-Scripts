@@ -40,10 +40,16 @@ output.appendChild(titles[output_index])
 output.appendChild(contents[output_index])
 output.appendChild(bottoms[output_index])
 output.style.marginLeft = '50%'
+clear = document.createElement('div')
+clear.style.clear = 'both'
+in_container = document.createElement('div')
+in_container.appendChild(input)
+in_container.appendChild(output)
+in_container.appendChild(clear)
+in_container.style.breakInside = 'avoid'
 tds = document.querySelectorAll('body > table > tbody > tr > td')
 container = tds[tds.length - 1]
-container.appendChild(input)
-container.appendChild(output)
+container.appendChild(in_container)
 
 // Remove statistic and "Special Judge"
 info = document.querySelector('body > table > tbody > tr > td > font > b > span')
@@ -54,11 +60,15 @@ document.querySelectorAll('div.panel_title').forEach((d) => {
     d.style.fontSize = '27px'
     d.style.height = '57px'
 })
-document.querySelectorAll('div.panel_content,  div.panel_content > pre > div').forEach((d) => {
+document.querySelectorAll('div.panel_content,  div.panel_content > pre div').forEach((d) => {
     d.style.fontSize = '21px'
 })
 document.querySelector('h1').style.fontSize = '3em'
 document.querySelector('font > b > span').style.fontSize = '18px'
+
+// Change the title
+title = document.querySelector('h1')
+title.innerText = "A - " + title.innerText
 
 // Finally, print the result web page
 window.print()
