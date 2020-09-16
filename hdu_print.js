@@ -60,15 +60,11 @@ document.querySelectorAll('div.panel_title').forEach((d) => {
     d.style.fontSize = '27px'
     d.style.height = '57px'
 })
-document.querySelectorAll('div.panel_content,  div.panel_content > pre div').forEach((d) => {
+document.querySelectorAll('div.panel_content,  div.panel_content div').forEach((d) => {
     d.style.fontSize = '21px'
 })
 document.querySelector('h1').style.fontSize = '3em'
 document.querySelector('font > b > span').style.fontSize = '18px'
-
-// Change the title
-title = document.querySelector('h1')
-title.innerText = "A - " + title.innerText
 
 // Finally, print the result web page
 window.print()
