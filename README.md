@@ -22,7 +22,7 @@ When tested, `Chrome 85.0.4183.102`, `ChromeDriver 85.0.4183.87` and `selenium 3
 #### Usage:
 
 ```
-hdu_print.py [-h] -i ID -c WEBDRIVER [-s SCRIPT] [-o OUTPUT] [--no-add-mark] [--preserve-single-files]
+hdu_print.py [-h] [-c WEBDRIVER] [-s SCRIPT] [-o OUTPUT] [--no-add-mark] [--preserve-single-files] from to
 ```
 
 ## vjudge\_board.py
