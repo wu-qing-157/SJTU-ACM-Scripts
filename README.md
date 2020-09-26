@@ -40,3 +40,19 @@ Crawl standings of one or more vjudge contests and output it in SJTU OJ shadow f
 ```
 vjudge_board.py [-h] [-o OUTPUT] [-c {clip.exe,xclip}] contest_id [contest_id ...]
 ```
+
+## codeforces\_board.py
+
+Crawl standings of one or more codeforces contests or gyms and output it in SJTU OJ shadow form.
+
+#### Requirements:
+
+`requests`
+
+`xclip` if clipboard needed on Linux
+
+#### Usage:
+
+```
+codeforces_board.py [-h] [-o OUTPUT] [-c {clip.exe,xclip}] contest_id [contest_id ...]
+```
