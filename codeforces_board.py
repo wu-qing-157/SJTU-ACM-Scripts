@@ -15,18 +15,19 @@ except ArgumentError:
     parser.print_help()
 
 if args.output == '':
-    args.output = f'vj{"_".join(args.contest_id)}.shadow'
+    args.output = f'cf{"_".join(args.contest_id)}.shadow'
 
 result = []
 for contest in args.contest_id:
-    info = json.loads(requests.get(f'https://vjudge.net/contest/rank/single/{contest}', timeout=5).text)
-    submissions = info['submissions']
+    info = json.loads(requests.get(f'https://codeforces.com/api/contest.status?contestId={contest}&showUnofficial=true', timeout=5).text)
+    submissions = info['result']
     for submission in submissions:
+        if not submission['author']['ghost']: continue
         result.append({
-            'user': info['participants'][str(submission[0])][0],
-            'problem': ascii_uppercase[submission[1]],
-            'is_accepted': submission[2] == 1,
-            'time': submission[3]
+            'user': submission['author']['teamName'],
+            'problem': submission['problem']['index'],
+            'is_accepted': submission['verdict'] == 'OK',
+            'time': submission['relativeTimeSeconds']
         })
 
 with open(args.output, 'w') as f:
