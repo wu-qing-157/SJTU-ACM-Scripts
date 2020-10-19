@@ -9,7 +9,7 @@ from string import ascii_uppercase
 from PyPDF2 import PdfFileMerger
 from shutil import rmtree
 
-parser = ArgumentParser(description='Generate problem statements from HDU', )
+parser = ArgumentParser(description='Generate problem statements from Kattis', )
 parser.add_argument('-c', '--webdriver', type=str, help='path of chromedriver', default='chromedriver')
 parser.add_argument('-s', '--script', type=str, help='path of javascript used when printing', default='kattis_print.js')
 parser.add_argument('-o', '--output', type=str, help='path of output file', default='statements.pdf')
