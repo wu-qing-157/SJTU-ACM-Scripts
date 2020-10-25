@@ -1,6 +1,7 @@
 #!python3
 
 import os, json
+from sys import stdout
 from time import sleep
 from argparse import ArgumentParser, ArgumentError
 from selenium import webdriver
@@ -33,6 +34,7 @@ merger = PdfFileMerger()
 
 try:
     print('open chromedriver...', end='')
+    stdout.flush()
     chrome_options = webdriver.ChromeOptions()
     settings = {
         "recentDestinations": [{
